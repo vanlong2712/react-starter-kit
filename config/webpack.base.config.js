@@ -9,6 +9,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const APP_DIR = path.resolve(__dirname, '../src');
 
+const STATIC_VERSION = '0.0.1'
+
 module.exports = env => {
   const { PLATFORM, VERSION } = env;
   return merge([
@@ -31,6 +33,13 @@ module.exports = env => {
           ]
         },
         plugins: [
+
+          new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: `main-${STATIC_VERSION}.css`
+          }),
+
           new HtmlWebpackPlugin({
             template: './public/index.html',
             filename: './index.html',
@@ -57,12 +66,11 @@ module.exports = env => {
           }),
           new CopyWebpackPlugin([ { from: 'src/static' } ]),
         ],
-        // output: {
-        //   filename: '[name].bundle.js',
-        //   chunkFilename: '[name].chunk.bundle.js',
-        //   path: path.resolve(__dirname, '..', 'dist'),
-        //   publicPath: '/',
-        // },
+        output: {
+          filename: `main-${STATIC_VERSION}.js`,
+          path: path.resolve(__dirname, '..', 'dist'),
+          publicPath: '/',
+        },
     }
   ])
 };
