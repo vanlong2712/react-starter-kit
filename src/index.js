@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { StoreProvider } from './store/index';
 
 import './index.css';
+import { ActionProvier } from './action';
 
 const App = React.lazy(() => import('./container/App'));
 
@@ -16,12 +17,14 @@ const FavPage = React.lazy(() => import('./container/FavPage'));
 ReactDOM.render(
   <React.Suspense fallback={<div>Loading...</div>}>
     <StoreProvider>
-      <Router>
-        <App path="/">
-          <HomePage path="/" />
-          <FavPage path="/faves" />
-        </App>
-      </Router>
+      <ActionProvier>
+        <Router>
+          <App path="/">
+            <HomePage path="/" />
+            <FavPage path="/faves" />
+          </App>
+        </Router>
+      </ActionProvier>
     </StoreProvider>
   </React.Suspense>,
   document.getElementById('root'),

@@ -1,9 +1,12 @@
 {
   "editor.tabSize": 2,
   "editor.rulers": [100],
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "eslint.autoFixOnSave": true,
   "editor.showFoldingControls": "always",
   "editor.folding": true,
-  "editor.foldingStrategy": "indentation", 
+  "editor.foldingStrategy": "indentation",
+  "prettier.eslintIntegration": true,
+  "prettier.singleQuote": true,
+  "prettier.printWidth": 200
 }

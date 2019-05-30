@@ -3,7 +3,7 @@ import { Link } from '@reach/router';
 import { Store } from '../store/index';
 
 export default function App(props) {
-  const { state } = React.useContext(Store);
+  const { episodeRd } = React.useContext(Store);
 
   return (
     <React.Fragment>
@@ -14,7 +14,7 @@ export default function App(props) {
         </div>
         <div>
           <Link to="/">Home</Link>
-          <Link to="/faves">Favourite(s) {state.favourites.length}</Link>
+          <Link to="/faves">Favourite(s) {episodeRd.favourites.length}</Link>
         </div>
       </header>
       {props.children}

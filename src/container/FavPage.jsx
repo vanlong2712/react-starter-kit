@@ -1,29 +1,23 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Store } from '../store/index';
+import { Action } from '../action';
+import { goTo } from '../utils/Utils';
 
 const EpisodesList = React.lazy(() => import('./EpisodesList'));
 export default function FavPage() {
-  const { state, dispatch } = React.useContext(Store);
-  const toggleFavAction = episode => {
-    const episodeInFavourites = state.favourites.includes(episode);
-    let dispatchObj = {
-      type: 'ADD_FAV',
-      payload: episode,
-    };
-    if (episodeInFavourites) {
-      const favouritesWithoutEpisode = state.favourites.filter(fav => fav.id !== episode.id);
-      dispatchObj = {
-        type: 'REMOVE_FAV',
-        payload: favouritesWithoutEpisode,
-      };
+  const { episodeRd } = useContext(Store);
+  const { toggleFavAction } = useContext(Action);
+
+  useEffect(() => {
+    if (episodeRd.favourites.length == 0) {
+      goTo('/');
     }
-    return dispatch(dispatchObj);
-  };
+  }, [episodeRd]);
 
   const props = {
-    episodes: state.favourites,
+    episodes: episodeRd.favourites,
     toggleFavAction,
-    favourites: state.favourites,
+    favourites: episodeRd.favourites,
   };
   return (
     <React.Suspense fallback={<div>Loading...</div>}>
