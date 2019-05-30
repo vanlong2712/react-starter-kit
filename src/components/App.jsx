@@ -1,10 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from '@reach/router';
 import { Store } from '../store/index';
+import { consoleLog } from '../utils/Utils';
 
-export default function App(props) {
+const App = ({ children }) => {
   const { episodeRd } = React.useContext(Store);
 
+  consoleLog('Render: App');
   return (
     <React.Fragment>
       <header className="header">
@@ -17,7 +20,13 @@ export default function App(props) {
           <Link to="/faves">Favourite(s) {episodeRd.favourites.length}</Link>
         </div>
       </header>
-      {props.children}
+      {children}
     </React.Fragment>
   );
-}
+};
+
+App.propTypes = {
+  children: PropTypes.any,
+};
+
+export default App;

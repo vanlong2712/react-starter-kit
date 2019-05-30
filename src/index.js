@@ -8,11 +8,11 @@ import { StoreProvider } from './store/index';
 import './index.css';
 import { ActionProvier } from './action';
 
-const App = React.lazy(() => import('./container/App'));
+const App = React.lazy(() => import('./components/App'));
 
-const HomePage = React.lazy(() => import('./container/HomePage'));
+const HomePage = React.lazy(() => import('./components/HomePage'));
 
-const FavPage = React.lazy(() => import('./container/FavPage'));
+const FavPage = React.lazy(() => import('./components/FavPage'));
 
 ReactDOM.render(
   <React.Suspense fallback={<div>Loading...</div>}>
