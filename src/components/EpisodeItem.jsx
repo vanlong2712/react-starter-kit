@@ -1,7 +1,7 @@
 import React from 'react';
 import { consoleLog } from '../utils/Utils';
 
-const EpisodeItem = ({ episode, favourites, toggleFavAction }) => {
+const EpisodeItem = React.memo(({ episode, favourites, toggleFavAction }) => {
   consoleLog('Render: EpisodeItem');
   return (
     <section className="episode-box" key={episode.id}>
@@ -17,6 +17,6 @@ const EpisodeItem = ({ episode, favourites, toggleFavAction }) => {
       </section>
     </section>
   );
-};
+});
 
 export default EpisodeItem;

@@ -27,14 +27,14 @@ const HomePage = () => {
   }, []);
 
   consoleLog('Render: HomePage');
-
-  const EpisodesListMemo = useMemo(() => <EpisodesList {...props} />, [props]);
   return (
     <React.Fragment>
       Count: {count}
       <button onClick={onHandleClick}>Click</button>
       <React.Suspense fallback={<div>Loading...</div>}>
-        <section className="episode-layout">{EpisodesListMemo}</section>
+        <section className="episode-layout">
+          <EpisodesList {...props} />
+        </section>
       </React.Suspense>
     </React.Fragment>
   );
