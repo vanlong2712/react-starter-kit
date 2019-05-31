@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom';
 import { Router } from '@reach/router';
 import * as serviceWorker from './serviceWorker';
 import { StoreProvider } from './store/index';
+import { ActionProvier } from './action';
 
 import './index.css';
-import { ActionProvier } from './action';
 
 const App = React.lazy(() => import('./components/App'));
 

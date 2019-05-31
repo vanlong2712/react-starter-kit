@@ -9,7 +9,7 @@ export default function FavPage() {
   const { toggleFavAction } = useContext(Action);
 
   useEffect(() => {
-    if (episodeRd.favourites.length == 0) {
+    if (episodeRd.favourites.length === 0) {
       goTo('/');
     }
   }, [episodeRd]);

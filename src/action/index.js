@@ -34,6 +34,12 @@ export function ActionProvier(props) {
     return dispatchEspisode(dispatchObj);
   };
 
-  const value = { fetchDataAction, toggleFavAction };
+  const hanldeTestDeepObject = () => {
+    return dispatchEspisode({
+      type: types.TEST_CHANGE_DEEP_OBJECT,
+    });
+  };
+
+  const value = { fetchDataAction, toggleFavAction, hanldeTestDeepObject };
   return <Action.Provider value={value}>{props.children}</Action.Provider>;
 }

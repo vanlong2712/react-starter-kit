@@ -5,7 +5,7 @@ import { Store } from '../store/index';
 import { consoleLog } from '../utils/Utils';
 
 const App = ({ children }) => {
-  const { episodeRd } = React.useContext(Store);
+  // const { episodeRd } = React.useContext(Store);
 
   consoleLog('Render: App');
   return (
@@ -17,7 +17,10 @@ const App = ({ children }) => {
         </div>
         <div>
           <Link to="/">Home</Link>
-          <Link to="/faves">Favourite(s) {episodeRd.favourites.length}</Link>
+          <Link to="/faves">
+            Favourite(s)
+            {/* {episodeRd.favourites.length} */}
+          </Link>
         </div>
       </header>
       {children}
